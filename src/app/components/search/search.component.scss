@@ -1,0 +1,19 @@
+.search{
+  z-index: 999999;
+  position: absolute;
+  top: 16px; left: 48px;
+  width: 90px; max-width: 50%;
+  transition: .5s;
+  &.mat-focused, &.active{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .search{
+    max-width: 100%;
+    &.mat-focused, &.active{
+      width: calc(100% - 70px);
+    }
+  }
+}

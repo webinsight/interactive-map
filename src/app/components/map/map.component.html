@@ -1,0 +1,6 @@
+<div class="map" leaflet
+     [leafletOptions]="options"
+     [leafletLayers]="layers"
+     (leafletMapReady)="onMapReady($event)">
+></div>
+<app-search (locationEmit)="changeView($event)"></app-search>
