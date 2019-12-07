@@ -87,7 +87,13 @@ THE SOFTWARE.
 
 @angular/material/autocomplete
 
+@angular/material/button
+
 @angular/material/core
+
+@angular/material/datepicker
+
+@angular/material/dialog
 
 @angular/material/form-field
 
