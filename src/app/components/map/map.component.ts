@@ -22,7 +22,7 @@ export class MapComponent implements OnInit {
   polygonMarkersOnly: Array<any> = [];
   schoolData: Array<any>;
   mapRouting;
-  showEnrollmentModal = true;
+  showEnrollmentModal = false;
 
   constructor(private regionService: RegionService) {}
 
