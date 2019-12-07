@@ -14,10 +14,10 @@ export class MapComponent implements OnInit {
   options = {
     layers: [
       L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-        {maxZoom: 18, minZoom: 13})
+        {maxZoom: 18, minZoom: 12})
     ],
     center: L.latLng(48.50835977515098 , 32.26547241210938),
-    zoom: 13
+    zoom: 12
   };
   polygonMarkersOnly: Array<any> = [];
   schoolData: Array<any>;
