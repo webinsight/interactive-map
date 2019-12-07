@@ -9,14 +9,22 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { HttpClientModule } from '@angular/common/http';
 import {RegionService} from './servises/region.service';
 import { SearchComponent } from './components/search/search.component';
-import {MatAutocompleteModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {
+  MatAutocompleteModule, MatButtonModule,
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatNativeDateModule
+} from '@angular/material';
 import {FormsModule} from '@angular/forms';
+import { SchoolEnrollmentModalComponent } from './components/school-enrollment-modal/school-enrollment-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    SearchComponent
+    SearchComponent,
+    SchoolEnrollmentModalComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +35,13 @@ import {FormsModule} from '@angular/forms';
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonModule,
   ],
-  providers: [RegionService],
+  providers: [RegionService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

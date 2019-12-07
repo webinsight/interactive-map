@@ -22,6 +22,7 @@ export class MapComponent implements OnInit {
   polygonMarkersOnly: Array<any> = [];
   schoolData: Array<any>;
   mapRouting;
+  showEnrollmentModal = true;
 
   constructor(private regionService: RegionService) {}
 
@@ -42,7 +43,8 @@ export class MapComponent implements OnInit {
 
   noteSchoolPopup(data) {
     return `<div class="school-wrap">`
-                + `<img src="assets/not-found.png" alt="#"><em>${data.addressStreet}</em><div>${data.fullName}</div>` +
+            + `<img src="assets/example.jpeg" alt="#"><em>${data.addressStreet}</em><a href="${data.link}" target="_blank">${data.link}</a>`
+            + `<div>${data.fullName}</div><button class="school-button">Подати Заяву</button>` +
            `</div>`;
   }
 
@@ -73,7 +75,7 @@ export class MapComponent implements OnInit {
       this.mapRouting = L.Routing.control({
         lineOptions: {styles: [{color: '#242c81', weight: 7}]},
         fitSelectedRoutes: false,
-        show: false,
+        show: true,
         waypoints: [
           L.latLng(location.y, location.x),
           L.latLng(pointLayer.school[0].location[0] , pointLayer.school[0].location[1])
@@ -86,14 +88,23 @@ export class MapComponent implements OnInit {
 
   @HostListener('mouseover', ['$event']) onHover(e) {
     if (e.target.classList[0] === 'leaflet-interactive') {
-
+      e.target.classList.add('active');
+      e.target.onmouseout = () => {
+        e.target.classList.remove('active');
+      };
+    }
+    if (e.target.classList[0] === 'leaflet-interactive') {
       e.target.classList.add('active');
       e.target.onmouseout = () => {
         e.target.classList.remove('active');
       };
     }
   }
-
+  @HostListener('click', ['$event']) openModal(e) {
+    if (e.target.classList[0] === 'school-button') {
+     this.showEnrollmentModal = true;
+    }
+  }
 
   checkPolygonHavePoint(point, vs) {
     const x = point[0];

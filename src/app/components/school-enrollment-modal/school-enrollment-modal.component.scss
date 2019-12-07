@@ -1,0 +1,18 @@
+:host{
+  position: fixed; z-index: 999; top: 0; left: 0; display: flex;
+  width: 100vw; height: 100vh; background: rgba(52, 49, 49, 0.4); padding: 0 15px;
+  .modal-container{
+    margin: auto; background: white; display: flex; padding: 30px;
+    width: 100%; flex-direction: column; max-width: 420px; position: relative;
+    .close-icon{
+      position: absolute; top: 8px; right: 15px;
+      cursor: pointer; font-family: sans-serif;
+    }
+    .btn-group{
+      display: flex; align-items: center; justify-content: flex-end;
+      button:nth-last-child(1){
+        margin-left: 7px;
+      }
+    }
+  }
+}

@@ -1,6 +1,11 @@
 <div class="map" leaflet
      [leafletOptions]="options"
      [leafletLayers]="layers"
-     (leafletMapReady)="onMapReady($event)">
+     (leafletMapReady)="onMapReady($event)"
 ></div>
+
 <app-search (locationEmit)="changeView($event)"></app-search>
+
+<app-school-enrollment-modal
+  *ngIf="showEnrollmentModal" (closeEmit)="showEnrollmentModal = false"
+></app-school-enrollment-modal>
