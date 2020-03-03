@@ -4,7 +4,7 @@
      (leafletMapReady)="onMapReady($event)"
 ></div>
 
-<app-search (locationEmit)="changeView($event)"></app-search>
+<app-search (locationEmit)="changeView($event)" (clearEmit)="clearSearch()"></app-search>
 
 <app-school-enrollment-modal
   *ngIf="showEnrollmentModal" (closeEmit)="showEnrollmentModal = false"

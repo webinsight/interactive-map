@@ -8,6 +8,7 @@ import {  OpenStreetMapProvider } from 'leaflet-geosearch';
 })
 export class SearchComponent implements OnInit {
   @Output() locationEmit = new EventEmitter();
+  @Output() clearEmit = new EventEmitter();
   searchedValues: any[] = [];
   inputText: string;
 
@@ -22,5 +23,9 @@ export class SearchComponent implements OnInit {
 
   onSelectAddress(value) {
     this.locationEmit.emit({x: value.x, y: value.y});
+  }
+  clear() {
+    this.inputText = '';
+    this.clearEmit.emit();
   }
 }

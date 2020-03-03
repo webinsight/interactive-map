@@ -8,6 +8,16 @@
     width: 100%;
   }
 }
+.back-block{
+  z-index: 700; position: absolute; cursor: pointer;
+  top: 76px; left: 10px;
+  img{
+    height: 23px;
+  }
+  img:nth-child(1) {
+    filter: invert(26%);
+  }
+}
 
 @media screen and (max-width: 1200px) {
   .search{

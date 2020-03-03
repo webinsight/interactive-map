@@ -1,6 +1,10 @@
 <mat-form-field class="search" [ngClass]="{'active': !!inputText}">
   <input type="text" placeholder="Пошук" matInput [(ngModel)]="inputText" [matAutocomplete]="auto"
          (keyup)="autocomplete()">
+  <button mat-button *ngIf="inputText" matSuffix mat-icon-button aria-label="Clear"
+          (click)="clear()">
+    <mat-icon>close</mat-icon>
+  </button>
   <mat-autocomplete #auto="matAutocomplete">
     <mat-option *ngFor="let option of searchedValues" [value]="option.label"
                 (onSelectionChange)="onSelectAddress(option)">
@@ -8,3 +12,8 @@
     </mat-option>
   </mat-autocomplete>
 </mat-form-field>
+
+<a class="back-block" href="https://krop.osvita-mrk.gov.ua">
+  <img src="assets/back.png" alt="back">
+  <img src="assets/logo.png" alt="logo">
+</a>

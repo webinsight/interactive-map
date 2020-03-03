@@ -18,6 +18,7 @@ import {
 } from '@angular/material';
 import {FormsModule} from '@angular/forms';
 import { SchoolEnrollmentModalComponent } from './components/school-enrollment-modal/school-enrollment-modal.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -26,21 +27,22 @@ import { SchoolEnrollmentModalComponent } from './components/school-enrollment-m
     SearchComponent,
     SchoolEnrollmentModalComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    LeafletModule.forRoot(),
-    HttpClientModule,
-    MatAutocompleteModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    MatDatepickerModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatButtonModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        LeafletModule.forRoot(),
+        HttpClientModule,
+        MatAutocompleteModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        MatDatepickerModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatButtonModule,
+        MatIconModule,
+    ],
   providers: [RegionService, MatDatepickerModule],
   bootstrap: [AppComponent]
 })

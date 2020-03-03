@@ -14,10 +14,10 @@ export class MapComponent implements OnInit {
   options = {
     layers: [
       L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
-        {maxZoom: 18, minZoom: 12})
+        {maxZoom: 18, minZoom: 13})
     ],
     center: L.latLng(48.50835977515098 , 32.26547241210938),
-    zoom: 12
+    zoom: 13
   };
   polygonMarkersOnly: Array<any> = [];
   schoolData: Array<any>;
@@ -43,8 +43,8 @@ export class MapComponent implements OnInit {
 
   noteSchoolPopup(data) {
     return `<div class="school-wrap">`
-            + `<img src="assets/example.jpeg" alt="#"><em>${data.addressStreet}</em><a href="${data.link}" target="_blank">${data.link}</a>`
-            + `<div>${data.fullName}</div><button class="school-button">Подати Заяву</button>` +
+            + `<img src="${data.mainPhoto}" alt="#"><em>${data.addressStreet}</em><a href="${data.link}" target="_blank">${data.link}</a>`
+            + `<div>${data.fullName}</div><a class="school-button" href='https://krop.osvita-mrk.gov.ua/registration/${data.id}'>Подати Заяву</a>` +
            `</div>`;
   }
 
@@ -85,6 +85,10 @@ export class MapComponent implements OnInit {
       this.mapRouting.addTo(this.map);
     }
   }
+  clearSearch() {
+    this.map.setView(new L.LatLng(48.50835977515098 , 32.26547241210938), 13, {animate: true, duration: 1});
+    this.layers = this.polygonMarkersOnly;
+  }
 
   @HostListener('mouseover', ['$event']) onHover(e) {
     if (e.target.classList[0] === 'leaflet-interactive') {
@@ -101,9 +105,9 @@ export class MapComponent implements OnInit {
     }
   }
   @HostListener('click', ['$event']) openModal(e) {
-    if (e.target.classList[0] === 'school-button') {
-     this.showEnrollmentModal = true;
-    }
+    // if (e.target.classList[0] === 'school-button') {
+    //  // this.showEnrollmentModal = true;
+    // }
   }
 
   checkPolygonHavePoint(point, vs) {
